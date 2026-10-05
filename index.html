@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#10151d" />
+    <meta name="description" content="Un asistente de IA para entender tus tareas, paso a paso." />
+    <title>Chris — Asistente para tus tareas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="#" aria-label="Chris inicio">
+          <span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 8.5A3.5 3.5 0 0 1 9.5 5H26v20H9.5A3.5 3.5 0 0 0 6 28.5v-20Z"/><path d="M6 8.5v20M11 10h10M11 14h10M11 18h7"/></svg></span>
+          <span class="brand-name">chris<span>.</span></span>
+        </a>
+        <button class="new-chat" id="new-chat"><span class="plus">＋</span> Nuevo chat <kbd>⌘ K</kbd></button>
+        <div class="side-label">TU ESPACIO</div>
+        <button class="side-link active"><span class="side-icon">✳</span> Asistente de tareas</button>
+        <a class="side-link" href="https://rbach526.github.io/bell-schedule/" target="_blank" rel="noreferrer"><span class="side-icon">◷</span> Horario escolar <span class="external">↗</span></a>
+        <div class="side-label recent-label">RECIENTE</div>
+        <div class="recent-list" id="recent-list"><div class="recent-empty">Tus conversaciones nuevas aparecerán aquí.</div></div>
+        <div class="sidebar-bottom">
+          <div class="plan-card"><div class="plan-icon">✦</div><div><strong>Aprende a tu ritmo</strong><p>Pide pistas, ejemplos o una explicación paso a paso.</p></div></div>
+          <div class="profile"><div class="avatar">T</div><div class="profile-copy"><strong>Tu espacio</strong><span>Asistente personal</span></div><button class="profile-menu" aria-label="Opciones">•••</button></div>
+        </div>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <button class="mobile-menu" id="mobile-menu" aria-label="Abrir menú">☰</button>
+          <div class="breadcrumb">Chris <span>/</span> <strong>Asistente de tareas</strong></div>
+          <a class="schedule-shortcut" href="https://rbach526.github.io/bell-schedule/" target="_blank" rel="noreferrer"><span>◷</span> Ver horario</a>
+        </header>
+
+        <section class="conversation" id="conversation" aria-live="polite">
+          <div class="welcome" id="welcome">
+            <div class="welcome-orbit"><div class="orbit-dot dot-a"></div><div class="orbit-dot dot-b"></div><span>✳</span></div>
+            <div class="eyebrow"><span class="eyebrow-line"></span> TU COMPAÑERO DE ESTUDIO <span class="eyebrow-line"></span></div>
+            <h1>Aprender se siente<br /><em>mejor acompañado.</em></h1>
+            <p class="welcome-copy">Cuéntame qué estás estudiando. Te ayudo a entenderlo, encontrar el siguiente paso y llegar a la respuesta por tu cuenta.</p>
+            <div class="suggestions">
+              <button class="suggestion" data-prompt="Explícame las fracciones como si estuviera empezando desde cero."><span class="suggestion-icon blue">↗</span><span><strong>Explícame un tema</strong><small>Claro y paso a paso</small></span><span class="suggestion-arrow">↗</span></button>
+              <button class="suggestion" data-prompt="Ayúdame a resolver esta tarea con pistas, sin darme la respuesta de una vez: "><span class="suggestion-icon peach">✎</span><span><strong>Resolvamos una tarea</strong><small>Con pistas, no atajos</small></span><span class="suggestion-arrow">↗</span></button>
+              <button class="suggestion" data-prompt="Hazme cinco preguntas para practicar el tema de "><span class="suggestion-icon green">◎</span><span><strong>Ponme a practicar</strong><small>Preguntas para repasar</small></span><span class="suggestion-arrow">↗</span></button>
+              <button class="suggestion" data-prompt="Revisa mi respuesta y dime qué puedo mejorar: "><span class="suggestion-icon violet">⌕</span><span><strong>Revisa mi respuesta</strong><small>Consejos útiles y amables</small></span><span class="suggestion-arrow">↗</span></button>
+            </div>
+          </div>
+          <div class="messages" id="messages"></div>
+        </section>
+
+        <div class="composer-wrap">
+          <form class="composer" id="chat-form">
+            <label class="sr-only" for="message-input">Escribe tu pregunta</label>
+            <textarea id="message-input" rows="1" maxlength="8000" placeholder="Pregúntame sobre tu tarea…" required></textarea>
+            <div class="composer-tools">
+              <div class="composer-hint"><span class="sparkle-mini">✦</span> Aprende, no solo copies</div>
+              <div class="composer-actions"><span class="char-count" id="char-count">0 / 8000</span><button class="send-button" id="send-button" type="submit" aria-label="Enviar pregunta"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m-7 7 7-7 7 7"/></svg></button></div>
+            </div>
+          </form>
+          <p class="disclaimer">La IA puede equivocarse. Comprueba los datos importantes con tus apuntes o tu profesor.</p>
+        </div>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status"></div>
+    <script src="config.js"></script>
+    <script src="app.js" defer></script>
+  </body>
+</html>
